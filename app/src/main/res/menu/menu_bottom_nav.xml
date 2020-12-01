@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_fragment"
+        android:icon="@drawable/menu_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/search_fragment"
+        android:icon="@drawable/icon_outline_search"
+        android:title="Search" />
+    <item
+        android:id="@+id/notify_fragment"
+        android:icon="@drawable/menu_notify"
+        android:title="Notify" />
+    <item
+        android:id="@+id/mail_fragment"
+        android:icon="@drawable/menu_mail"
+        android:title="Mail" />
+</menu>
