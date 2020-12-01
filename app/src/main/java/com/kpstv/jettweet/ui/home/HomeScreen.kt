@@ -26,6 +26,10 @@ import com.kpstv.jettweet.ui.utils.Screen
 
 @Composable
 fun Home(onNavClick: () -> Unit) {
+    // TODO: Add small chat head at top pinned below App bar.
+
+    // TODO: Add fab button & animate if state is different, see twitter
+    //       how it rotates when & from Home screen.
     JetTweetTheme {
         Scaffold(
             topBar = {
@@ -43,6 +47,7 @@ fun Home(onNavClick: () -> Unit) {
             },
             bodyContent = {
                 ChatItem()
+                // TODO: Create some fake datas & add more chat item
             }
         )
     }
@@ -50,6 +55,8 @@ fun Home(onNavClick: () -> Unit) {
 
 @Composable
 fun ChatItem(modifier: Modifier = Modifier) {
+    // TODO: Make the chat Item contain the vertical bars like one when someone
+    //       replied to other people
     ConstraintLayout(modifier.fillMaxWidth().padding(12.dp)) {
         val (profile, heading, tag, icon, text, actions) = createRefs()
         Image(
@@ -121,6 +128,8 @@ fun ChatItem(modifier: Modifier = Modifier) {
                     icon = Icons.Outlined.Cached,
                     number = 6
                 )
+                // TODO: Make this Favourite item selectable & when selected
+                //       show filled icon with color red or similar
                 ChatActions(
                     icon = Icons.Outlined.FavoriteBorder,
                     number = 42

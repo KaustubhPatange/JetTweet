@@ -128,6 +128,7 @@ fun DrawerMenu() {
 
 @Composable
 fun NavItem(title: String, icon: VectorAsset? = null, onClick: () -> Unit = {}) {
+    // TODO: Change ripple color to bit dark like similar to twitter
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -151,6 +152,7 @@ fun NavItem(title: String, icon: VectorAsset? = null, onClick: () -> Unit = {}) 
 
 @Composable
 fun BottomBar(AmbientContentColor: ProvidableAmbient<Color>) {
+    // TODO: Make the bulb button toggleable to dark & white theme
     Row(modifier = Modifier.padding(horizontal = 20.dp, vertical = 15.dp)) {
         Providers(AmbientContentColor provides MaterialTheme.colors.secondary) {
             BottomItem(asset = Icons.Outlined.EmojiObjects)

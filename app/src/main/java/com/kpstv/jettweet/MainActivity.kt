@@ -19,8 +19,11 @@ import com.kpstv.jettweet.ui.theme.JetTweetTheme
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
+@Suppress("RemoveExplicitTypeArguments")
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel>()
+
+    private lateinit var drawer: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
         navView.setupWithNavController(navController)
+
+        drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
 
         val bottomNav: BottomNavigationView = findViewById(R.id.bottom_nav)
         bottomNav.setupWithNavController(navController)
@@ -49,13 +54,20 @@ class MainActivity : AppCompatActivity() {
             viewModel.events.collect { event ->
                 when (event) {
                     MainEvent.OPEN_DRAWER -> {
-                        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
                         drawer.openDrawer(GravityCompat.START)
                     }
                     MainEvent.NONE -> {
                     }
                 }
             }
+        }
+    }
+
+    override fun onBackPressed() {
+        if (drawer.isOpen) {
+            drawer.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
         }
     }
 }
